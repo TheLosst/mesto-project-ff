@@ -8,6 +8,9 @@
 
 // @todo: Вывести карточки на страницу 
 
+// Первый случайно отправил, думал, что делал коммиты, но увы...
+// Коммиты сделаные после отправки не подтянулись((
+
 
 const cardTemplate = document.querySelector('#card-template').content;
 const placesList = document.querySelector('.places__list');
@@ -16,6 +19,16 @@ const popupImage = imagePopup.querySelector('.popup__image');
 const popupCaption = imagePopup.querySelector('.popup__caption');
 const closeImagePopupButton = imagePopup.querySelector('.popup__close');
 const body = document.body;
+
+const profileAddButton = document.querySelector('.profile__add-button');
+const newCardPopup = document.querySelector('.popup_type_new-card');
+const newCardForm = newCardPopup.querySelector('.popup__form');
+const placeNameInput = newCardForm.querySelector('.popup__input_type_card-name');
+const placeLinkInput = newCardForm.querySelector('.popup__input_type_url');
+const closeNewCardPopupButton = newCardPopup.querySelector('.popup__close');
+
+
+
 
 function createCard(cardData, deleteCallback) {
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
@@ -71,6 +84,38 @@ function enableScroll() {
   body.style.overflow = '';
 }
 
-closeImagePopupButton.addEventListener('click', closeImagePopup);
+function openImagePopup(imageUrl, imageCaption) {
+  popupImage.src = imageUrl;
+  popupImage.alt = imageCaption;
+  popupCaption.textContent = imageCaption;
+  openPopup(imagePopup);
+}
+
+function handleNewCardFormSubmit(evt) {
+  evt.preventDefault();
+  const cardData = {
+    name: placeNameInput.value,
+    link: placeLinkInput.value
+  };
+  const cardElement = createCard(cardData, deleteCard);
+  placesList.prepend(cardElement);
+  closePopup(newCardPopup);
+  newCardForm.reset();
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
+  disableScroll();
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_is-opened');
+  enableScroll();
+}
+
+closeImagePopupButton.addEventListener('click', () => closePopup(imagePopup));
+closeNewCardPopupButton.addEventListener('click', () => closePopup(newCardPopup));
+newCardForm.addEventListener('submit', handleNewCardFormSubmit);
+profileAddButton.addEventListener('click', () => openPopup(newCardPopup));
 
 renderInitialCards();

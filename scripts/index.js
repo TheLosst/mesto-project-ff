@@ -15,7 +15,7 @@ const imagePopup = document.querySelector('.popup_type_image');
 const popupImage = imagePopup.querySelector('.popup__image');
 const popupCaption = imagePopup.querySelector('.popup__caption');
 const closeImagePopupButton = imagePopup.querySelector('.popup__close');
-
+const body = document.body;
 
 function createCard(cardData, deleteCallback) {
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
@@ -55,10 +55,20 @@ function openImagePopup(imageUrl, imageCaption) {
   popupImage.alt = imageCaption;
   popupCaption.textContent = imageCaption;
   imagePopup.classList.add('popup_is-opened');
+  disableScroll();
 }
 
 function closeImagePopup() {
   imagePopup.classList.remove('popup_is-opened');
+  enableScroll();
+}
+
+function disableScroll() {
+  body.style.overflow = 'hidden';
+}
+
+function enableScroll() {
+  body.style.overflow = '';
 }
 
 closeImagePopupButton.addEventListener('click', closeImagePopup);

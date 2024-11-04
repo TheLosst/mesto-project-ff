@@ -64,59 +64,59 @@ function renderInitialCards() {
   });
 }
 
-function openImagePopup(imageUrl, imageCaption) {
-  popupImage.src = imageUrl;
-  popupImage.alt = imageCaption;
-  popupCaption.textContent = imageCaption;
-  imagePopup.classList.add('popup_is-opened');
-  disableScroll();
-}
+// function openImagePopup(imageUrl, imageCaption) {
+//   popupImage.src = imageUrl;
+//   popupImage.alt = imageCaption;
+//   popupCaption.textContent = imageCaption;
+//   imagePopup.classList.add('popup_is-opened');
+//   disableScroll();
+// }
 
-function closeImagePopup() {
-  imagePopup.classList.remove('popup_is-opened');
-  enableScroll();
-}
+// function closeImagePopup() {
+//   imagePopup.classList.remove('popup_is-opened');
+//   enableScroll();
+// }
 
-function disableScroll() {
-  body.style.overflow = 'hidden';
-}
+// function disableScroll() {
+//   body.style.overflow = 'hidden';
+// }
 
-function enableScroll() {
-  body.style.overflow = '';
-}
+// function enableScroll() {
+//   body.style.overflow = '';
+// }
 
-function openImagePopup(imageUrl, imageCaption) {
-  popupImage.src = imageUrl;
-  popupImage.alt = imageCaption;
-  popupCaption.textContent = imageCaption;
-  openPopup(imagePopup);
-}
+// function openImagePopup(imageUrl, imageCaption) {
+//   popupImage.src = imageUrl;
+//   popupImage.alt = imageCaption;
+//   popupCaption.textContent = imageCaption;
+//   openPopup(imagePopup);
+// }
 
-function handleNewCardFormSubmit(evt) {
-  evt.preventDefault();
-  const cardData = {
-    name: placeNameInput.value,
-    link: placeLinkInput.value
-  };
-  const cardElement = createCard(cardData, deleteCard);
-  placesList.prepend(cardElement);
-  closePopup(newCardPopup);
-  newCardForm.reset();
-}
+// function handleNewCardFormSubmit(evt) {
+//   evt.preventDefault();
+//   const cardData = {
+//     name: placeNameInput.value,
+//     link: placeLinkInput.value
+//   };
+//   const cardElement = createCard(cardData, deleteCard);
+//   placesList.prepend(cardElement);
+//   closePopup(newCardPopup);
+//   newCardForm.reset();
+// }
 
-function openPopup(popup) {
-  popup.classList.add('popup_is-opened');
-  disableScroll();
-}
+// function openPopup(popup) {
+//   popup.classList.add('popup_is-opened');
+//   disableScroll();
+// }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_is-opened');
-  enableScroll();
-}
+// function closePopup(popup) {
+//   popup.classList.remove('popup_is-opened');
+//   enableScroll();
+// }
 
-closeImagePopupButton.addEventListener('click', () => closePopup(imagePopup));
-closeNewCardPopupButton.addEventListener('click', () => closePopup(newCardPopup));
-newCardForm.addEventListener('submit', handleNewCardFormSubmit);
-profileAddButton.addEventListener('click', () => openPopup(newCardPopup));
+// closeImagePopupButton.addEventListener('click', () => closePopup(imagePopup));
+// closeNewCardPopupButton.addEventListener('click', () => closePopup(newCardPopup));
+// newCardForm.addEventListener('submit', handleNewCardFormSubmit);
+// profileAddButton.addEventListener('click', () => openPopup(newCardPopup));
 
 renderInitialCards();

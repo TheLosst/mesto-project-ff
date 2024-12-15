@@ -22,6 +22,11 @@ const imagePopupImg = document.querySelector(".popup__image");
 const imagePopupCaption = document.querySelector(".popup__caption");
 const newCardPopup = document.querySelector(".popup_type_new-card");
 
+const popups = document.querySelectorAll(".popup");
+popups.forEach((popup) => {
+  popup.classList.add("popup_is-animated");
+});
+
 // Функция для вывода карточек на страницу
 function renderInitialCards() {
   initialCards.forEach((cardData) => {

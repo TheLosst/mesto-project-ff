@@ -27,13 +27,6 @@ export const createCard = (
   return cardElement;
 };
 
-export const renderInitialCards = (initialCards, container) => {
-  initialCards.forEach((cardData) => {
-    const cardElement = createCard(cardData, deleteCard);
-    container.append(cardElement);
-  });
-};
-
 export function deleteCard(cardElement) {
   cardElement.remove();
 }

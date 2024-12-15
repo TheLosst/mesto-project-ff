@@ -1,19 +1,15 @@
 // Функция открытия
 export function openModal(popup) {
-  popup.classList.add("popup_is-animated");
-  requestAnimationFrame(() => {
-    popup.classList.add("popup_is-opened");
-  });
-  document.addEventListener("keydown", handleEscClose, { once: true });
-  popup.addEventListener("mousedown", handleOverlayClick, { once: true });
+  popup.classList.add("popup_is-opened");
+  document.addEventListener("keydown", handleEscClose);
+  popup.addEventListener("mousedown", handleOverlayClick);
 }
 
 // Функция закрытия
 export function closeModal(popup) {
   popup.classList.remove("popup_is-opened");
-  setTimeout(() => {
-    popup.classList.remove("popup_is-animated");
-  }, 100);
+  document.removeEventListener("keydown", handleEscClose);
+  popup.removeEventListener("mousedown", handleOverlayClick);
 }
 
 // Функция закрытия(ESC)

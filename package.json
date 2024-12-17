@@ -1,7 +1,7 @@
 {
   "name": "mesto-project-ff",
   "version": "1.0.0",
-  "description": "",
+  "description": "[Ссылка на репозиторий](https://github.com/TheLosst/mesto-project-ff)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,7 +24,7 @@
     "postcss": "^8.4.47",
     "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
-    "webpack": "^5.96.1",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },

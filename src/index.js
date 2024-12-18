@@ -58,8 +58,13 @@ async function getUserInfo() {
 // Загрузка начальных карточек и информации о пользователе
 async function loadCards() {
   try {
-    await getUserInfo();
-    const cards = await getInitialCards();
+    const [user, cards] = await Promise.all([getUser(), getInitialCards()]);
+
+    profileName.textContent = user.name;
+    profileAbout.textContent = user.about;
+    profileImage.src = user.avatar;
+    profileId = user._id;
+
     cards.forEach((cardData) => {
       const cardElement = createCard(
         cardData,

@@ -1,4 +1,5 @@
 .popup__button {
+  position: relative;
   width: 100%;
   height: 50px;
   font-size: 18px;
@@ -17,6 +18,34 @@
 .popup__button:hover {
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
+}
+
+.popup__button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.popup__button_disabled {
+  background-color: transparent; /* Прозрачный фон для неактивной кнопки */
+  color: #c4c4c4; /* Серый цвет текста */
+  border: 1px solid #c4c4c4; /* Серый цвет рамки */
+  cursor: not-allowed;
+  opacity: 1; /* Установите непрозрачность на 1, чтобы цвет текста и рамки были видны */
+}
+
+.popup__button_disabled:hover,
+.popup__button_disabled:active {
+  background-color: transparent; /* Прозрачный фон при наведении и нажатии */
+  color: #c4c4c4; /* Серый цвет текста при наведении и нажатии */
+  border: 1px solid #c4c4c4; /* Серый цвет рамки при наведении и нажатии */
+  opacity: 1; /* Установите непрозрачность на 1, чтобы цвет текста и рамки были видны */
+}
+
+@media screen and (max-width: 568px) {
+  .popup__button {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 @media screen and (max-width: 568px) {

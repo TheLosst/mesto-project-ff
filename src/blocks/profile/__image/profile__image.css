@@ -20,3 +20,41 @@
     margin-right: 0;
   }
 }
+
+.profile__image-overlay {
+  position: relative;
+}
+
+.profile__image-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.profile__image-overlay::after {
+  content: url("../../../images/edit-icon.svg");
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  transform: translate(0%, 0%);
+  width: 100px; /* Увеличиваем размер иконки */
+  height: 100px; /* Увеличиваем размер иконки */
+  background-size: contain; /* Убедимся, что иконка масштабируется правильно */
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.profile__image-overlay:hover::before,
+.profile__image-overlay:hover::after {
+  opacity: 1;
+}

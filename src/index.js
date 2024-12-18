@@ -10,6 +10,17 @@ import {
   deleteCardAPI,
   updateAvatar,
 } from "./components/api.js";
+
+// Конфигурация валидации
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
 // DOM элементы
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
@@ -70,12 +81,12 @@ function setupPopupEventListeners() {
     nameInput.value = profileName.textContent;
     aboutInput.value = profileAbout.textContent;
     openModal(profileEditPopup);
-    clearValidation(profileEditPopup);
+    clearValidation(profileEditPopup, validationConfig);
   });
 
   addButton.addEventListener("click", () => {
     openModal(newCardPopup);
-    clearValidation(newCardPopup);
+    clearValidation(newCardPopup, validationConfig);
   });
 }
 
@@ -168,7 +179,7 @@ async function handleCardDelete(event, cardId) {
 function setupAvatarPopupListener() {
   avatarOverlay.addEventListener("click", () => {
     openModal(avatarPopup);
-    clearValidation(avatarPopup);
+    clearValidation(avatarPopup, validationConfig);
   });
 
   // Обработчик события для обновления аватара
@@ -199,4 +210,4 @@ loadCards();
 setupPopupEventListeners();
 setupCloseButtonListeners();
 setupAvatarPopupListener();
-enableValidation();
+enableValidation(validationConfig);
